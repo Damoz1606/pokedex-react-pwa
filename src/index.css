@@ -1,0 +1,354 @@
+:root {
+    --side-nav-w: 50px;
+    --primary-pwa-color: rgb(255, 22, 22);
+    --secondary-pwa-color: rgb(255, 255, 255);
+    --scrollbar-width: 5px;
+    --scrollbar-track-color: rgb(194, 194, 194);
+    --scrollbar-thumb-color: rgb(146, 146, 146);
+    --scrollbar-thumb-color-hover: var(--primary-pwa-color);
+}
+
+* {
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    transition: all .3s ease;
+}
+
+::-webkit-scrollbar:before {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border-radius: 5px;
+    transition: all .3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+    background: var(--scrollbar-thumb-color-hover);
+    filter: drop-shadow(45%);
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.w-screen {
+    width: 100vw;
+}
+
+.h-screen {
+    height: 100vh;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+}
+
+.overflow-x-auto {
+    overflow-x: auto;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.appbar {
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+}
+
+.appbar-height {
+    height: 50px !important;
+}
+
+.side-background {
+    position: fixed;
+    background-color: rgba(20, 20, 20, 0.63);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 99;
+    transition: all .3s ease;
+}
+
+.side-nav {
+    padding-top: 50px;
+    width: var(--side-nav-w);
+    height: 100%;
+    overflow-y: hidden;
+    box-shadow: 0 0 5px var(--scrollbar-track-color);
+    z-index: 1000;
+}
+
+.side-nav-item {
+    width: 100%;
+    height: var(--side-nav-w);
+    display: flex;
+    vertical-align: middle;
+    margin: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: transparent !important; */
+    cursor: pointer;
+    position: relative;
+}
+
+.sidebar-item-avatar {
+    background-color: var(--primary-pwa-color) !important;
+    vertical-align: middle !important;
+    font-size: 1rem !important;
+    width: 30px !important;
+    height: 30px !important;
+    padding: 0.2rem;
+    border-radius: 100px;
+    color: #fff;
+    transition: all .3 ease;
+}
+
+.sidebar-reduce {
+    width: var(--side-nav-w);
+    height: 100%;
+    transition: all .3s ease;
+}
+
+.sidebar-expand {
+    width: 30%;
+    height: 100%;
+    transition: all .3s ease;
+}
+
+.sidebar-expand .sidebar-item-avatar {
+    position: absolute;
+    font-size: 0.75rem !important;
+    width: 25px !important;
+    height: 25px !important;
+    right: 0;
+    top: 0;
+    transition: all .3 ease;
+}
+
+.sidebar-reduce .sidebar-item-text {
+    display: none;
+    transition: all .3 ease;
+}
+
+.sidebar-expand .sidebar-item-text {
+    display: block;
+    transition: all .3 ease;
+}
+
+.sidebar-item-text {
+    text-align: start;
+    text-transform: capitalize;
+    vertical-align: middle !important;
+    transition: all .3 ease;
+}
+
+.side-nav-overflow::-webkit-scrollbar {
+    display: none;
+}
+
+.pokemon-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.poke-image {
+    max-width: 500px !important;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.poke-image img {
+    width: 100%;
+    max-width: 125px;
+}
+
+.mr-1 {
+    margin-right: 1rem !important;
+}
+
+.indicator-container {
+    margin: 15% 0;
+    position: fixed;
+    z-index: 100;
+}
+
+.indicator-container>.indicator {
+    padding: 0.5rem !important;
+    background: #fff !important;
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 5px var(--scrollbar-track-color);
+    border-radius: 0.25rem;
+    margin: 0.25rem;
+}
+
+.indicator {
+    background: #fff !important;
+}
+
+.indicator>div {
+    margin: 1rem;
+}
+
+.indicator-container.top>.indicator {
+    margin-top: 0.25rem;
+}
+
+.indicator-container.bottom>.indicator {
+    margin-top: 0.25rem;
+}
+
+.indicator-container.left>.indicator {
+    margin-right: 0.25rem;
+}
+
+.indicator-container.right>.indicator {
+    margin-left: 0.25rem;
+}
+
+.top {
+    top: 0 !important;
+    bottom: auto;
+}
+
+.bottom {
+    bottom: 0 !important;
+    top: auto;
+}
+
+.left {
+    left: 0 !important;
+    right: auto;
+}
+
+.right {
+    right: 0 !important;
+    left: auto;
+}
+
+.loading {
+    border: 4px solid rgba(56, 56, 56, 0.1);
+    margin: 0.5rem;
+    width: 50px;
+    height: 50px;
+    border-left-color: var(--primary-pwa-color);
+    border-radius: 100%;
+    animation: spin 1s linear infinite;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.sparking {
+    animation: sparking 1s ease infinite;
+    -webkit-animation: sparking 1s ease infinite;
+}
+
+.spin {
+    animation: spin 1s ease infinite;
+    -webkit-animation: spin 1s ease infinite;
+}
+
+.hidden {
+    display: none;
+    transition: all .3s ease;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes sparking {
+    0% {
+        color: var(--primary-pwa-color)
+    }
+    33% {
+        color: rgba(56, 56, 56, 0.1)
+    }
+    66% {
+        color: var(--primary-pwa-color)
+    }
+    100% {
+        color: rgba(56, 56, 56, 0.1)
+    }
+}
+
+@-webkit-keyframes sparking {
+    0% {
+        color: var(--primary-pwa-color)
+    }
+    33% {
+        color: rgba(56, 56, 56, 0.1)
+    }
+    66% {
+        color: var(--primary-pwa-color)
+    }
+    100% {
+        color: rgba(56, 56, 56, 0.1)
+    }
+}
+
+@media (min-width: 426px) {
+    .poke-image {
+        max-width: 1000px !important;
+    }
+    .poke-image img {
+        width: 100%;
+    }
+}
